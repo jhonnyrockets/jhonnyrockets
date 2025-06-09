@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Six Flags Rides</title>
+
+  <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tauri&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightblue;
+      padding-top: 70px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      flex: 1;
+      padding: 0 10px;
+      max-width: 100% !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .row {
+      display: flex;
+      max-width: 1150px;
+      max-height: 500px;
+      gap: 10px;
+      justify-content: center;
+      align-items: stretch;
+      margin: 10px 0;
+      align-self: center;
+    }
+
+    .col-md-4 {
+      padding: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      background-color: #007bff;
+      color: white;
+      justify-content: center;
+      align-items: center;
+      min-height: 200px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      max-width: 400px;
+    }
+
+    .col-md-4 img {
+      max-width: 90%;
+      max-height: 60%;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      margin: 20px 0 10px;
+      color: black;
+    }
+
+    .navbar {
+      background-color: #007bff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .navbar li {
+      margin: 2px;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus {
+      background-color: #fff;
+      color: #007bff;
+    }
+
+    .tyle {
+      text-align: center;
+      font-family: "Tauri", sans-serif;
+    }
+
+    .navbar .active {
+      background-color: lightblue;
+      color: #0754bc;
+    }
+
+    .DK {
+      font-family: "Quintessential", serif;
+      color:black;
+      font-size:40px;
+    }
+
+    .Viper {
+        font-family: "Jolly Lodger", system-ui;
+        font-size: 50px;
+          background: -webkit-radial-gradient(#db1616,#e7a115,#e7a115,#dbf74f, #dbf74f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+    margin-top: -30px;
+    margin-bottom:10px;
+    }
+    .AmeEagle{
+    font-family: "Rye", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color:#0e115d;
+    }
+    .AmeEagle2{
+         font-family: "Rye", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color:red;
+    }
+    .Batman{
+    font-family: "Gravitas One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color:#eddc00;
+    font-size:30px;
+    }
+    .YelBatman{
+    font-family: "Gravitas One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color:black;
+    font-size:30px;
+    }
+    .GolStyle{
+          font-family: "Frijole", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size:35px;
+  background: -webkit-linear-gradient(#DA832C, #FFB700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
+  .Whz{
+      font-family: "Faster One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size:45px;
+  color:#185f12;
+
+  }
+  .Whz1{
+    font-family: "Faster One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size:41px;
+    color:#ffffff;
+  }
+  .Bull{
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: italic;
+  color: orangered;
+  font-size: 35px;
+  padding: 0px;
+  position: relative;
+  top: 107px;
+  }
+  #bull2{
+    border-radius: 20px;
+    width: 350px;
+    height: 450px;
+    position: relative; 
+    top: 100px;
+  }
+  
+    .spacer {
+      height: 5px; 
+    }
+    .editP{
+    font-size:20px;
+    font-family: "Saira", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    } 
+    .Wrath{
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
+     background: -webkit-radial-gradient(yellow,yellow,cyan, cyan);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+  .SkyStr{
+    font-family: "Trade Winds", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size:35px;
+  }
+  footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+    }
+    #cart {
+        width: 26px;
+        height: 23px;
+    }
+    footer img {
+      height: 30px;
+      margin: 0 5px;
+    }
+    #row3 {
+        height: 475px;
+    }
+    #bulltext {
+        position: relative;
+        bottom: 85px;
+    }
+    .title {
+        font-family: "Racing Sans One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 50px;
+        color:#2e4257;
+    }
+    .flash {
+        font-family: "Faster One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        color: yellow;
+        font-size: 30px;
+        position: relative;
+        top: 130px;
+    }
+    .redflash {
+        color: red;
+    }
+    .superman {
+        font-family: "Bungee Inline", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 30px;
+        position: relative;
+        top: 85px;
+    }
+    .bluesup {
+        color: blue;
+    }
+    .redsup {
+        color: red;
+    }
+    .xflight {
+        font-family: "Rubik Dirt", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        color: red;
+        position: relative; 
+        bottom: 25px;
+    }
+    .x {
+        color: rgb(104, 104, 104);
+    }
+    .flash1 {
+        position: relative;
+        top: 115px;
+    }
+    .superman1 {
+        position: relative;
+        top: 85px;
+    }
+    #xflight1 {
+        position: relative;
+        top: 25px;
+    }
+    .flatex {
+        position: relative;
+        bottom: 120px;
+    }
+    .suptex {
+        position: relative;
+        bottom: 55px;
+    }
+    .maxx{
+        font-family: "Faster One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        color:#ffffffbe;
+    }
+    .joker{
+        font-family: "Creepster", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        color: rgb(0, 227, 0)
+    }
+    .demon{
+        font-family: "Rubik Burned", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        color: rgb(167, 108, 0)
+    }
+    .mtex{
+        position: relative;
+        bottom: 50px;
+    }
+    .jtex{
+        position: relative;
+        bottom: 70px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a class="tyle" href="index.html">Home</a></li>
+      <li><a class="tyle active" href="rideinfo.html">About the Rides</a></li>
+      <li><a class="tyle" href="waittimes.html">Wait Times</a></li>
+      <li><a class="tyle" href="tickets.html">Purchase Tickets</a></li>
+      <li>
+        <a id="cartLink" href="cart.html">
+          <img id="cart" src="media/cart.png" alt="cart" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Title -->
+  <h2 class="title">Ride Descriptions</h2>
+
+  <!-- Ride Info Grid -->
+  <div class="container">
+    <!-- Top Row -->
+    <div class="row">
+      <div class="col-md-4">
+        <p class="AmeEagle"><span class="AmeEagle2">American</span> Eagle:</p>
+        <img src="media/american-eagle.jpg" alt="American Eagle" />
+        <p class="editP">The American Eagle is a wooden roller coaster known for its racing dual-track design, making it a thrilling experience.</p>
+      </div>
+      <div class="col-md-4">
+        <p class="Batman"><span class="YelBatman">B</span>a<span class="YelBatman">tm</span>a<span class="YelBatman">n:</span></p>
+        <img src="media/batman.jpg" alt="Batman" />
+        <p class="editP">"BATMAN™: The Ride" is a 55 mph inverted roller coaster that immerses riders in a Gotham City adventure.</p>
+      </div>
+      <div class="col-md-4">
+        <p class="GolStyle">Goliath:</p>
+        <img src="media/goliath.jpg" alt="Goliath" />
+        <p class="editP">Goliath is a wooden roller coaster known for its intense thrills and high speeds, featuring a world record breaking drop. </p>
+      </div>
+    </div>
+
+    <!-- Spacer to move rows closer -->
+    <div class="spacer"></div>
+
+    <!-- Row 2 -->
+    <div class="row">
+      <div class="col-md-4">
+        <p class="Viper">Viper:</p>
+        <img src="media/viper.jpg" alt="Viper" />
+        <p class="editP">Standing 100 feet tall, it features a distinctive coiling track layout inspired by the Coney Island Cyclone. It's a classic wooden roller coaster that opened on April 29, 1995.</p>
+      </div>
+      <div class="col-md-4">
+        <p class="Whz">W 
+        <span class="Whz1">h</span>
+        i
+        <span class="Whz1">z</span>
+        z
+        <span class="Whz1">e</span>
+        r
+        <span class="Whz1">:</span>
+        </p>
+        <img src="media/whizzer.jpg" alt="Whizzer" width="300" length="350" />
+        <p class="editP">The coaster reaches a top speed of 42 mph and traverses 3,100 feet of track, offering riders a smooth and scenic journey through wooded areas and over ponds.</p>
+      </div>
+      <div class="col-md-4">
+        <p class="DK">Dark Knight:</p>
+        <img src="media/DK.jpg" alt="Dark Knight" />
+        <p class="editP">The coaster is housed in a seven-story building and features six sharp 180-degree hairpin turns, creating a sensation of speed and sudden changes in direction.</p>
+      </div>
+    </div>
+    
+    <!-- Row 3 -->
+    <div class="row" id="row3">
+      <div class="col-md-4">
+        <p class="Wrath">Wrath of Rashaka:</p>
+        <img src="media/wrathnotfront.jpg" alt="Wrath of Rashaka" />
+        <p class="editP">It's described as the steepest and most inverted dive coaster in the world, featuring a 96-degree drop and five inversions. The ride takes riders through 3,239 feet of track at speeds of nearly 67 mph. </p>
+      </div>
+      <div class="col-md-4">
+        <p class="SkyStr">Sky Striker:</p>
+        <img src="media/striker.png" alt="Sky Striker" width="300" length="350" />
+        <p class="editP">Take in unique views of Six Flags Great America as you soar along 130-degree swings of the towering pendulum, nearly going upside down.</p>
+      </div>
+      <div class="col-md-4" id="bullcol">
+        <p class="Bull">Raging Bull:<p>
+        <img id="bull2" src="media/ragingbull.jpg" alt="Raging Bull" width="450" length="350"/>
+        <p id="bulltext" class="editP">A fan favorite of the park, this coaster takes you up 200 feet and has a thrilling and fun experience reaching up to 73 mph and lasting almost 3 minutes.</p>
+      </div>
+    </div>
+  </div>
+      <!-- Row 4 -->
+    <div class="row">
+      <div class="col-md-4">
+        <p class="flash"><span class="redflash">THE FLASH:</span> Vertical Velocity<p>
+        <img class="flash1" src="media/flash.jpg" alt="Flash"/>
+        <p class="editP flatex">This coaster takes you up and down 170 feet multiple times and reaches speeds of 60mph, an extremely thrilling experience that has you screaming the whole time.</p>
+      </div>
+      <div class="col-md-4">
+        <p class="superman"><span class=bluesup>SUPERMAN:</span> <span class="redsup">Ultimate Flight</span><p>
+        <img class="superman1" src="media/superman.jpg" alt="Superman"/>
+        <p class="editP suptex">Different to most other coasters, SUPERMAN: Ultimate Flight faces you downward as if you were flying like Superman, and has lots of high-speed loops and twists.<p>
+      </div>
+      <div class="col-md-4">
+        <p class="xflight"><span class="x">X-</span>Flight:</p>
+        <img id="xflight" src="media/xflight.jpg" alt="X-Flight" width="300" length="200" />
+        <p class="editP xtex">X-Flight is one of the most fun coasters in the park, with many inversions that are extremely thrilling, yet the ride is somewhat comforting. </p>
+      </div>
+    </div>
+          <!-- Row 5 -->
+    <div class="row">
+      <div class="col-md-4">
+        <p class="maxx">Maxx Force<p>
+        <img class="maxx1" src="media/maxx.jpg" alt="Maxx Force" />
+        <p class="editP mtex">Maxx Force, while only being 22 seconds long, makes up for it through its blistering speed, with a starting launch of up to almost 90mph in only 2 seconds!</p>
+      </div>
+      <div class="col-md-4">
+        <p class="joker">Joker<p>
+        <img class="joker1" src="media/joker.jpg" alt="Joker" />
+        <p class="editP jtex">Spins and spins and spins! The thrilling ride Joker will have you spinning in your seat the whole time as it takes you around its track.<p>
+      </div>
+      <div class="col-md-4">
+        <p class="demon">Demon</p>
+        <img id="demon1" src="media/demon.jpg" alt="Demon" width="300" length="200" />
+        <p class="editP">A Great America Classic, Demon, was introduced in 1976 and is loved and hated by many because of its nostalgic significance, however bumpy ride. Be careful not to hit your head! </p>
+      </div>
+    </div>
+    <footer>
+  <div>
+    <p>1 Great America Parkway <br> Gurnee, IL 60031 <br>United States</p>
+    <p>Contact Us:</p>
+    <a href="https://twitter.com"><img src="media/x-logo.png" alt="X"></a>
+    <a href="https://instagram.com"><img src="media/instagram.png" alt="Instagram"></a>
+    <a href="https://facebook.com"><img src="media/Facebook.png" alt="Facebook"></a>
+  </div>
+
+  <div>
+    <img src="media/jhonnylogo.png" alt="Logo" style="width: 150px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6));">
+  </div>
+
+  <div>
+    &copy; 2025 Jhonny Rockets
+  </div>
+</footer>
+</body>
+</html>

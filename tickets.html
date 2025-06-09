@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Six Flags Great America Tickets</title>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tauri&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #b4dfeb;
+      color: #222;
+      padding-top: 70px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 1em;
+    }
+
+    h1 {
+        font-family: "Racing Sans One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        color:#2e4257;
+        text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #dc3545; /* red */
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c82333; 
+    }
+
+    #confirmation {
+      margin-top: 20px;
+      text-align: center;
+      color: green;
+      display: none;
+    }
+
+    .navbar {
+      background-color: #007bff;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      z-index: 1000;
+      left: 0;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .navbar li {
+      margin: 2px;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    #cart {
+        width: 26px;
+        height: 23px;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus {
+      background-color: #fff;
+      color: #007bff;
+    }
+
+    .navbar .active {
+      background-color: lightblue;
+      color: #0754bc;
+    }
+
+    .CenterForm {
+      text-align: center;
+    }
+
+    .tyle{
+        text-align:center;
+        font-family: "Tauri", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .navbar .active {
+      background-color: lightblue;
+      color: #0754bc;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      width: 100vw;
+      height: 166.5px;
+    }
+
+    footer img {
+      height: 30px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+      <li><a class="tyle" href="index.html">Home</a></li>
+      <li><a class="tyle" href="rideinfo.html">About the Rides</a></li>
+      <li><a class="tyle" href="waittimes.html" class="active">Wait Times</a></li>
+      <li><a class="tyle active" href="tickets.html">Purchase Tickets</a></li>
+      <li><a id="cartLink" href="cart.html"><img id="cart" src="media/cart.png" alt="cart"></a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Six Flags Great America Tickets</h1>
+
+    <form id="ticketForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="tickets">Number of Tickets:</label>
+      <input type="number" id="tickets" min="1" value="1" required />
+
+      <label for="date">Visit Date (if applicable):</label>
+      <input type="date" id="date" />
+
+      <label for="type">Ticket Type:</label>
+      <select id="type" required>
+        <option value="">-- Select --</option>
+        <option value="General Admission">General Admission - $40</option>
+        <option value="Silver Pass">Silver Pass - $70</option>
+        <option value="Gold Pass">Gold Pass - $100</option>
+        <option value="Diamond Pass">Diamond Pass - $150</option>
+      </select>
+
+      <button type="submit">Buy Tickets</button>
+    </form>
+
+    <div id="confirmation">
+      <h2>Added to cart!</h2>
+      <p id="confirmationText">No tickets added yet.</p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<footer>
+  <div>
+    <p>1 Great America Parkway <br> Gurnee, IL 60031 <br>United States</p>
+    <p>Contact Us:</p>
+    <a href="https://twitter.com"><img src="media/x-logo.png" alt="X"></a>
+    <a href="https://instagram.com"><img src="media/instagram.png" alt="Instagram"></a>
+    <a href="https://facebook.com"><img src="media/Facebook.png" alt="Facebook"></a>
+  </div>
+
+  <div>
+    <img src="media/jhonnylogo.png" alt="Logo" style="width: 150px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6));">
+  </div>
+
+  <div>
+    &copy; 2025 Jhonny Rockets
+  </div>
+</footer>
+  
+    <script>
+    const form = document.getElementById("ticketForm");
+    const confirmation = document.getElementById("confirmation");
+    const confirmationText = document.getElementById("confirmationText");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const tickets = document.getElementById("tickets").value;
+      const date = document.getElementById("date").value;
+      const type = document.getElementById("type").value;
+
+      const ticket = { name, tickets, date, type };
+      localStorage.setItem("ticketInCart", JSON.stringify(ticket));
+
+      confirmationText.innerHTML =
+        "Thanks " +
+        name +
+        ", your " +
+        tickets +
+        " " +
+        type +
+        " ticket(s) have been added to the cart.";
+
+      confirmation.style.display = "block";
+    });
+  </script>
+ 
+</body>
+</html>

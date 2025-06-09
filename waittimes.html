@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Six Flags Wait Times</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tauri&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #b4dfeb ; 
+      color: #222;
+      margin: 0;
+      padding-top: 70px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+
+    h1, h2 {
+        font-family: "Racing Sans One", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size:80px, 60px;
+        color:#2e4257;
+        text-align: center;
+    }
+
+    #content {
+      margin-top: 1em;
+    }
+
+    .ride {
+      background: #ff6659;
+      color: #fff;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+
+    .ride:hover {
+      transform: scale(1.02);
+    }
+
+    .closed {
+      background: #adb5bd;
+      font-style: italic;
+    }
+
+    .navbar {
+      background-color: #007bff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      left: 0;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .navbar li {
+      margin: 2px;
+    }
+
+    .navbar a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    #cart {
+        width: 26px;
+        height: 23px;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus {
+      background-color: #fff;
+      color: #007bff;
+    }
+
+    .navbar .active {
+      background-color: lightblue;
+      color: #0754bc;
+    }
+    .tyle{
+        text-align:center;
+        font-family: "Tauri", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      width: 100%;
+    }
+
+    footer img {
+      height: 30px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+      <li><a class="tyle" href="index.html">Home</a></li>
+      <li><a class="tyle" href="rideinfo.html">About the Rides</a></li>
+      <li><a class="tyle active" href="waittimes.html" class="active">Wait Times</a></li>
+      <li><a class="tyle" href="tickets.html">Purchase Tickets</a></li>
+      <li><a id="cartLink" href="cart.html"><img id="cart" src="media/cart.png" alt="cart"></a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Six Flags Great America</h1>
+    <h2>All Rides Wait Times</h2>
+    <p style="font-size: 12px; color: black; margin-top: 10px; font-style: italic;">
+        Powered by <a href="https://queue-times.com" target="_blank" rel="noopener noreferrer"><b>Queue-Times.com</b></a>
+      </p>
+
+    <div id="content">Loading...</div>
+  </div>
+<footer>
+  <div>
+    <p>1 Great America Parkway <br> Gurnee, IL 60031 <br>United States</p>
+    <p>Contact Us:</p>
+    <a href="https://twitter.com"><img src="media/x-logo.png" alt="X"></a>
+    <a href="https://instagram.com"><img src="media/instagram.png" alt="Instagram"></a>
+    <a href="https://facebook.com"><img src="media/Facebook.png" alt="Facebook"></a>
+  </div>
+
+  <div>
+    <img src="media/jhonnylogo.png" alt="Logo" style="width: 150px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6));">
+  </div>
+
+  <div>
+    &copy; 2025 Jhonny Rockets
+  </div>
+</footer>
+  <script>
+    const proxy = 'https://api.allorigins.win/get?url=';
+    const url = 'https://queue-times.com/parks/38/queue_times.json';
+
+fetch(proxy + encodeURIComponent(url))
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    const json = JSON.parse(data.contents);
+    const rides = [];
+
+    // Use a for loop instead of flatMap to gather all rides
+    for (let i = 0; i < json.lands.length; i++) {
+      const land = json.lands[i];
+      for (let j = 0; j < land.rides.length; j++) {
+        rides.push(land.rides[j]);
+      }
+    }
+
+    if (rides.length === 0) {
+      document.getElementById('content').textContent = 'No rides available.';
+      return;
+    }
+
+    let html = '';
+    // Use a for loop to build the HTML
+    for (let i = 0; i < rides.length; i++) {
+      const ride = rides[i];
+      const status = ride.is_open ? ride.wait_time + ' min' : 'Closed';
+      const cls = ride.is_open ? 'ride' : 'ride closed';
+      html += '<div class="' + cls + '"><span>' + ride.name + '</span><span>' + status + '</span></div>';
+    }
+
+    document.getElementById('content').innerHTML = html;
+  })
+  .catch(function() {
+    document.getElementById('content').textContent = 'Failed to load data.';
+  });
+  </script>
+</body>
+</html>
